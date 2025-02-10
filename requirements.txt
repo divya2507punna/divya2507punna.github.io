@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+Flask
+Flask-Mail
+python-dotenv
+=======
+Flask
+Flask-Mail
+python-dotenv
+>>>>>>> 1bcdf1578c72621d625182899766061e3d38545a

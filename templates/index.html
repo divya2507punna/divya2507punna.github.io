@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Punna Divya Portfolio</title>
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Updated CSS with interactive elements */
+    :root {
+      --primary: #ff6900;
+      --secondary: #333;
+      --hover: #e05e00;
+    }
+
+    /* Add smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* New Hover Effects */
+    .sidebar nav ul li a {
+      position: relative;
+      transition: 0.3s;
+      padding: 5px 0;
+    }
+
+    .sidebar nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: var(--primary);
+      transition: 0.3s;
+    }
+
+    .sidebar nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Animated Social Icons */
+    .social-icons a {
+      transition: 0.3s transform;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(-5px) scale(1.2);
+      color: var(--hover);
+    }
+
+    /* Interactive Project Cards */
+    .project {
+      transition: 0.3s;
+      border-left: 3px solid transparent;
+      padding-left: 15px;
+    }
+
+    .project:hover {
+      transform: translateX(10px);
+      border-left-color: var(--primary);
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Skill Tags with Hover */
+    .skills-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .skill-tag {
+      background: var(--primary);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      transition: 0.3s;
+    }
+
+    .skill-tag:hover {
+      background: var(--hover);
+      transform: scale(1.05);
+    }
+
+    /* Floating Action Button */
+    .float-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: 0.3s;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .float-btn.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .float-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* Scroll Progress Indicator */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 250px;
+      right: 0;
+      height: 3px;
+      background: #ddd;
+      z-index: 999;
+    }
+
+    .scroll-progress-bar {
+      height: 100%;
+      background: var(--primary);
+      width: 0;
+      transition: 0.3s width;
+    }
+
+    /* Animation for Sections */
+    section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.6s;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Add Scroll Progress -->
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Floating Action Button -->
+  <div class="float-btn" id="topBtn">
+    <i class="fas fa-arrow-up"></i>
+  </div>       cx yyyyyy ym,n7
+
+  <!-- Update Social Icons -->
+  <div class="widget">
+    <h3>Social</h3>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/punnadivya1234/" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/divya2507punna" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="mailto:your@email.com" target="_blank">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Update Skills Section -->
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills-tags">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Pandas</span>
+      <span class="skill-tag">NumPy</span>
+      <span class="skill-tag">MySQL</span>
+      <span class="skill-tag">Data Analysis</span>
+      <span class="skill-tag">Excel</span>
+      <span class="skill-tag">Git</span>
+    </div>
+  </section>
+
+  <script>
+    // Scroll Progress
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.querySelector('.scroll-progress-bar').style.width = scrolled + '%';
+    });
+
+    // Back to Top Button
+    const topBtn = document.getElementById('topBtn');
+    window.addEventListener('scroll', () => {
+      topBtn.classList.toggle('visible', window.scrollY > 300);
+    });
+
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Intersection Observer for Section Animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Enhanced Form Validation
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showError('email', 'Please enter a valid email address');
+        return;
+      }
+      // Add success animation
+      this.classList.add('submitted');
+      setTimeout(() => {
+        alert('Thank you for your message!');
+        this.reset();
+        this.classList.remove('submitted');
+      }, 500);
+    });
+
+    function showError(fieldId, message) {
+      const field = document.getElementById(fieldId);
+      field.style.borderColor = 'red';
+      field.nextElementSibling?.remove();
+      field.insertAdjacentHTML('afterend', `<div class="error-message" style="color:red;font-size:0.8em">${message}</div>`);
+    }
+  </script>
+</body>
+</html>
