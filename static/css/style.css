@@ -1,129 +1,125 @@
-/* Root Variables for Theming */
+/* Root Variables */
 :root {
   --primary: #ff6900;
   --secondary: #333;
   --hover: #e05e00;
-  --bg-dark: #1e1e1e;
-  --light-text: #f5f5f5;
+  --light-bg: #f4f4f4;
+  --dark-text: #222;
 }
 
-/* Apply Smooth Scroll */
+/* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
 }
 
 /* Global Styles */
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--bg-dark);
-  color: var(--light-text);
+  font-family: 'Arial', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--dark-text);
   margin: 0;
   padding: 0;
 }
 
-/* Navbar */
+/* Navigation Bar */
 .navbar {
-  background: var(--secondary);
-  padding: 15px;
-}
-
-.navbar .navbar-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary);
-}
-
-.navbar .navbar-toggler {
-  color: var(--light-text);
-}
-
-.navbar-nav .nav-item {
-  margin-left: 15px;
-}
-
-.navbar-nav .nav-link {
-  color: white;
-  transition: 0.3s;
-}
-
-.navbar-nav .nav-link:hover {
-  color: var(--primary);
-}
-
-/* Hero Section */
-#hero {
-  text-align: center;
-  padding: 100px 20px;
-  background: url('../images/background.jpg') no-repeat center center/cover;
-}
-
-#hero h1 {
-  font-size: 3rem;
-  color: white;
-  animation: fadeIn 2s;
-}
-
-#hero span {
-  color: var(--primary);
-}
-
-#hero p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.social-links {
   display: flex;
-  justify-content: center;
-  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--secondary);
+  padding: 15px 20px;
+  color: white;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+.navbar ul li {
+  margin-left: 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover {
+  background: var(--primary);
+  border-radius: 5px;
 }
 
 .social-links a {
-  padding: 10px 15px;
-  font-size: 1.2rem;
-  border-radius: 5px;
+  margin-left: 15px;
+  font-size: 1.2em;
+  color: white;
   transition: 0.3s;
 }
 
-.social-links .btn-outline-primary:hover {
+.social-links a:hover {
+  color: var(--primary);
+}
+
+/* Scroll Progress */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #ddd;
+  z-index: 999;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: var(--primary);
+  width: 0;
+  transition: width 0.3s;
+}
+
+/* About Section */
+#about {
+  padding: 50px;
+  text-align: center;
+  background: white;
+}
+
+.resume-btn {
   background: var(--primary);
   color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 10px;
+  transition: 0.3s;
 }
 
-/* Sections */
-section {
-  padding: 60px 10%;
+.resume-btn:hover {
+  background: var(--hover);
+  transform: scale(1.05);
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2rem;
-  position: relative;
-}
-
-h2::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 3px;
-  background: var(--primary);
-  margin: 5px auto;
-}
-
-/* Skills */
+/* Skills Section */
 .skills-container {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
+  padding: 20px;
 }
 
 .skill {
   background: var(--primary);
-  padding: 10px 20px;
+  color: white;
+  padding: 12px 20px;
   border-radius: 20px;
-  font-size: 1rem;
+  font-size: 1em;
+  cursor: pointer;
   transition: 0.3s;
 }
 
@@ -132,58 +128,79 @@ h2::after {
   transform: scale(1.1);
 }
 
-/* Project Cards */
-.project-card {
-  background: #222;
+/* Projects Section */
+.project {
+  background: white;
   padding: 20px;
+  margin: 20px auto;
   border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
   transition: 0.3s;
 }
 
-.project-card:hover {
+.project:hover {
   transform: translateY(-5px);
   border-left: 5px solid var(--primary);
 }
 
-/* Why Hire Me */
-#hire-me ul {
-  list-style: none;
-  padding: 0;
+.project-link {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: bold;
 }
 
-#hire-me ul li {
-  padding: 10px;
-  font-size: 1.2rem;
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* Journey Timeline */
+.journey-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.journey-step {
+  background: var(--primary);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  width: 60%;
+  text-align: center;
   transition: 0.3s;
 }
 
-#hire-me ul li:hover {
+.journey-step:hover {
+  background: var(--hover);
   transform: scale(1.05);
-  color: var(--primary);
 }
 
 /* Contact Form */
 #contactForm {
-  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
   margin: auto;
-  text-align: center;
 }
 
 #contactForm input,
 #contactForm textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: none;
+  padding: 12px;
+  border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 #contactForm button {
   background: var(--primary);
-  padding: 10px;
+  color: white;
+  padding: 12px;
   border: none;
+  font-size: 1.1em;
+  border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -192,74 +209,11 @@ h2::after {
   background: var(--hover);
 }
 
-/* Floating Button */
-.float-btn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: var(--primary);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
-  transition: 0.3s;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.float-btn.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-.float-btn:hover {
-  transform: scale(1.1);
-}
-
-/* Scroll Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Certifications Section */
-.certificates {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.certificate-card {
-  background: #222;
-  padding: 15px;
-  border-radius: 10px;
+/* Footer */
+footer {
   text-align: center;
-  transition: 0.3s;
-}
-
-.certificate-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(255, 105, 0, 0.5);
-}
-
-.certificate-card a {
-  display: block;
-  margin-top: 10px;
-  color: var(--primary);
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.certificate-card a:hover {
-  color: var(--hover);
+  background: var(--secondary);
+  color: white;
+  padding: 15px;
+  margin-top: 20px;
 }

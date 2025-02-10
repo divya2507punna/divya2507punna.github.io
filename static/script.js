@@ -15,28 +15,36 @@ window.addEventListener("scroll", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
   
+  // Intersection Observer for Animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  document.querySelectorAll("section").forEach((section) => {
+    observer.observe(section);
+  });
+  
   // Form Validation
   document.getElementById("contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
     const email = document.getElementById("email").value;
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      alert("Please enter a valid email address!");
+      showError("email", "Please enter a valid email address");
       return;
     }
-    alert("Thank you for your message!");
+    alert("Thank you for your message! I will get back to you soon.");
     this.reset();
   });
   
-  // Section Fade-in Animation
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("fade-in");
-      }
-    });
-  }, { threshold: 0.2 });
-  
-  document.querySelectorAll("section").forEach((section) => {
-    observer.observe(section);
-  });
+  // Show Error Messages
+  function showError(fieldId, message) {
+    const field = document.getElementById(fieldId);
+    field.style.borderColor = "red";
+    field.nextElementSibling?.remove();
+    field.insertAdjacentHTML("afterend", `<div class="error-message" style="color:red;font-size:0.8em">${message}</div>`);
+  }
   
