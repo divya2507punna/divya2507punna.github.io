@@ -4,175 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Punna Divya Portfolio</title>
-  <!-- Add Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* Updated CSS with interactive elements */
-    :root {
-      --primary: #ff6900;
-      --secondary: #333;
-      --hover: #e05e00;
-    }
-
-    /* Add smooth scroll behavior */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* New Hover Effects */
-    .sidebar nav ul li a {
-      position: relative;
-      transition: 0.3s;
-      padding: 5px 0;
-    }
-
-    .sidebar nav ul li a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background: var(--primary);
-      transition: 0.3s;
-    }
-
-    .sidebar nav ul li a:hover::after {
-      width: 100%;
-    }
-
-    /* Animated Social Icons */
-    .social-icons a {
-      transition: 0.3s transform;
-    }
-
-    .social-icons a:hover {
-      transform: translateY(-5px) scale(1.2);
-      color: var(--hover);
-    }
-
-    /* Interactive Project Cards */
-    .project {
-      transition: 0.3s;
-      border-left: 3px solid transparent;
-      padding-left: 15px;
-    }
-
-    .project:hover {
-      transform: translateX(10px);
-      border-left-color: var(--primary);
-      box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
-    }
-
-    /* Skill Tags with Hover */
-    .skills-tags {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .skill-tag {
-      background: var(--primary);
-      color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-size: 0.9em;
-      transition: 0.3s;
-    }
-
-    .skill-tag:hover {
-      background: var(--hover);
-      transform: scale(1.05);
-    }
-
-    /* Floating Action Button */
-    .float-btn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--primary);
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      transition: 0.3s;
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .float-btn.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .float-btn:hover {
-      transform: scale(1.1);
-    }
-
-    /* Scroll Progress Indicator */
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 250px;
-      right: 0;
-      height: 3px;
-      background: #ddd;
-      z-index: 999;
-    }
-
-    .scroll-progress-bar {
-      height: 100%;
-      background: var(--primary);
-      width: 0;
-      transition: 0.3s width;
-    }
-
-    /* Animation for Sections */
-    section {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: 0.6s;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Add Scroll Progress -->
+
+  <!-- Scroll Progress -->
   <div class="scroll-progress">
     <div class="scroll-progress-bar"></div>
   </div>
 
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <h2>Punna Divya</h2>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <!-- Floating Action Button -->
   <div class="float-btn" id="topBtn">
     <i class="fas fa-arrow-up"></i>
-  </div>       cx yyyyyy ym,n7
-
-  <!-- Update Social Icons -->
-  <div class="widget">
-    <h3>Social</h3>
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/in/punnadivya1234/" target="_blank">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/divya2507punna" target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="mailto:your@email.com" target="_blank">
-        <i class="fas fa-envelope"></i>
-      </a>
-    </div>
   </div>
 
-  <!-- Update Skills Section -->
+  <!-- About Me Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Aspiring Data Analyst & Python Developer with expertise in data pipelines, automation tools, and process optimization.
+      Certified in Python & SQL. Passionate about data-driven solutions!
+    </p>
+    <a href="resume.pdf" class="resume-btn" download>Download Resume</a>
+  </section>
+
+  <!-- Skills Section -->
   <section id="skills">
     <h2>Technical Skills</h2>
     <div class="skills-tags">
@@ -186,61 +57,46 @@
     </div>
   </section>
 
-  <script>
-    // Scroll Progress
-    window.addEventListener('scroll', () => {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      document.querySelector('.scroll-progress-bar').style.width = scrolled + '%';
-    });
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Exploratory Data Analysis (EDA)</h3>
+      <p><strong>Skills Used:</strong> Python, Pandas, Matplotlib</p>
+      <p>Performed detailed data analysis on a Kaggle dataset (10,000+ rows) to identify customer churn trends.</p>
+      <a href="https://github.com/divya2507punna/customer-churn-analysis" target="_blank" class="project-link">View Project</a>
+    </div>
 
-    // Back to Top Button
-    const topBtn = document.getElementById('topBtn');
-    window.addEventListener('scroll', () => {
-      topBtn.classList.toggle('visible', window.scrollY > 300);
-    });
+    <div class="project">
+      <h3>E-commerce Data Analysis</h3>
+      <p><strong>Skills Used:</strong> Python, MySQL</p>
+      <p>Developed a database-driven inventory tracking system using MySQL and Python.</p>
+      <a href="https://github.com/divya2507punna/ecommerce-data-analysis" target="_blank" class="project-link">View Project</a>
+    </div>
+  </section>
 
-    topBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your Name">
 
-    // Intersection Observer for Section Animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="Your Email">
 
-    document.querySelectorAll('section').forEach(section => {
-      observer.observe(section);
-    });
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
 
-    // Enhanced Form Validation
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        showError('email', 'Please enter a valid email address');
-        return;
-      }
-      // Add success animation
-      this.classList.add('submitted');
-      setTimeout(() => {
-        alert('Thank you for your message!');
-        this.reset();
-        this.classList.remove('submitted');
-      }, 500);
-    });
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
-    function showError(fieldId, message) {
-      const field = document.getElementById(fieldId);
-      field.style.borderColor = 'red';
-      field.nextElementSibling?.remove();
-      field.insertAdjacentHTML('afterend', `<div class="error-message" style="color:red;font-size:0.8em">${message}</div>`);
-    }
-  </script>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Punna Divya. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
