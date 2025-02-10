@@ -8,7 +8,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -34,4 +33,17 @@ html {
 
 .navbar ul li a:hover {
   color: var(--primary);
+}
+
+.resume-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.resume-btn:hover {
+  background: var(--hover);
 }
