@@ -215,18 +215,19 @@ section:hover .animated-heading::after {
 }
 
 .project a:hover {
+  color: #007bff;
   text-decoration: underline;
 }
 
+
 /* Certifications */
 .certificate-img {
-  width: 320px;  /* Set a balanced width */
-  max-width: 100%; /* Ensure responsiveness */
+  width: 100%;
+  max-width: 300px;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  margin: 10px;
 }
+
 
 
 /* Why Hire Me */
