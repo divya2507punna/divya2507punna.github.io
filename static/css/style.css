@@ -178,6 +178,35 @@ body {
   transform: scale(1.05);
 }
 
+/* Certifications Section */
+.certificate-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  text-align: center;
+}
+
+.certificate img {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.certificate img:hover {
+  transform: scale(1.1);
+}
+
+.certificate p {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+
 /* Contact Form */
 #contactForm {
   display: flex;
