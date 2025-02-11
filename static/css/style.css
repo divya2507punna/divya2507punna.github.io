@@ -20,6 +20,16 @@
   left: 0;
 }
 
+header {
+  background-color: white;
+}
+
+.top-bar {
+  background-color: white;
+}
+
+
+
 
 /* Change text color for better visibility */
 .navbar .nav-link {
