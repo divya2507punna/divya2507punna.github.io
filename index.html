@@ -18,9 +18,22 @@
 
   <!-- Link External CSS -->
   <link rel="stylesheet" href="./static/css/style.css">
+
+  <style>
+    .scroll-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--primary);
+      z-index: 9999;
+      transition: width 0.3s ease;
+    }
+  </style>
 </head>
 <body>
-
+  <!-- Add Scroll Progress Bar -->
+  <div class="scroll-progress-bar"></div>
   <!-- Scroll to Top Button -->
   <button id="scrollTop" title="Go to top">↑</button>
 
@@ -39,17 +52,24 @@
             <li class="nav-item"><a class="nav-link" href="#transition">Journey</a></li>
             <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
             <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-            <li class="nav-item"><a class="nav-link" href="#certifications">certifications</a></li>
-            <li class="nav-item"><a class="nav-link" href="#hire-me">why me?</a></li>
+            <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+            <li class="nav-item"><a class="nav-link" href="#hire-me">Why Me?</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           </ul>
-          <div class="social-links ms-3">
-            <img src="./static/images/profile.jpg" alt="Punna Divya" class="profile-img">
-            <a href="https://linkedin.com/in/punnadivya1234" target="_blank">
+          <!-- Updated Navbar Section -->
+          <div class="social-links ms-3 d-flex align-items-center">
+            <div class="profile-container">
+              <img src="./static/images/profile.jpg" alt="Punna Divya" 
+                  class="navbar-profile-img">
+            </div>
+            <a href="https://linkedin.com/in/punnadivya1234" target="_blank" class="ms-3">
               <i class="fab fa-linkedin"></i>
             </a>
-            
-            <a href="https://drive.google.com/file/d/1OIwKmjR5oehz4j3XgEug5-9EtQM1bzgs/view?usp=drive_link" target="_blank" class="btn btn-primary resume-btn">Download CV</a>
+            <a href="https://drive.google.com/file/d/1OIwKmjR5oehz4j3XgEug5-9EtQM1bzgs/view?usp=drive_link" 
+              target="_blank" 
+              class="btn btn-primary resume-btn ms-3">
+              Download CV
+            </a>
           </div>
         </div>
       </div>
@@ -59,8 +79,8 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container text-center">
-      <h1 class="hero-title">Punna Divya</h1>
-      <p class="hero-subtitle">Data Analyst | Python Developer</p>
+      <h1 class="hero-title">Hi, I'm <span class="highlight">Punna Divya</span> 👋</h1>
+      <p class="hero-subtitle">Turning Data into Insights | Passionate about Python & Analytics</p>
       <img src="./static/images/profile.jpg" alt="Punna Divya" class="profile-img">
     </div>
   </section>
@@ -94,7 +114,7 @@
       <h3>Associate – Wipro</h3>
       <p><em>Hyderabad | March 2022 – October 2023</em></p>
       <ul>
-        <li>Optimized workflows using **Excel scripting**, improving efficiency by 10%.</li>
+        <li>Optimized workflows using Excel scripting, improving efficiency by 10%.</li>
         <li>Self-learned Python and SQL to automate reporting tasks.</li>
         <li>Mentored junior team members on data processing techniques.</li>
       </ul>
@@ -106,19 +126,19 @@
     <h2>Projects</h2>
     <div class="project">
       <h3>Customer Churn Analysis</h3>
-      <p>Analyzed **10,000+ records** to find churn trends and retention strategies.</p>
-      <p>Used **Pandas, NumPy**, and **Matplotlib** to generate insights.</p>
+      <p>Analyzed <strong>10,000+</strong> records to find churn trends and retention strategies.</p>
+      <p>Used <strong>Pandas, NumPy</strong>, and <strong>Matplotlib</strong> to generate insights.</p>
       <a href="https://github.com/divya2507punna/customer-churn-analysis" target="_blank">View Project</a>
     </div>
     <div class="project">
       <h3>E-commerce Data Analysis</h3>
-      <p>Developed an **inventory tracking system** using **MySQL & Python**.</p>
-      <p>Optimized **database queries**, reducing query time by **30%**.</p>
+      <p>Developed an <strong>inventory tracking system</strong> using <strong>MySQL & Python</strong></p>
+      <p>Optimized <strong>database queries</strong>, reducing query time by <strong>30%</strong>.</p>
       <a href="https://github.com/divya2507punna/ecommerce-data-analysis" target="_blank">View Project</a>
     </div>
   </section>
 
-    <!-- Why Hire Me Section -->
+  <!-- Why Hire Me Section -->
   <section id="hire-me" class="section">
     <h2>💡 Why Hire Me?</h2>
     <ul>
@@ -127,20 +147,35 @@
       <li>🔧 Hands-on Experience – Built end-to-end projects demonstrating real-world data handling skills.</li>
       <li>🤝 Collaboration & Communication – Worked in cross-functional teams at Amazon & Wipro.</li>
       <li>🎯 Driven & Goal-Oriented – Transitioned from non-IT to IT through focused learning.</li>
-      <li>"Led a team of 10 at Amazon in training AI models.</li>
+      <li>Led a team of 10 at Amazon in training AI models.</li>
       <li>Optimized database queries for e-commerce analysis, reducing processing time by 30%.</li>
     </ul>
   </section>
 
   <!-- Certifications Section -->
-  <section id="certifications" class="animated-section">
-    <h2 class="animated-heading">📜 Certifications</h2>
-    <div class="certificate-gallery">
-      <img src="./static/images/PSL_Certificate.jpg" class="certificate-img">
-      <img src="./static/images/Excel_Certificate.jpg" class="certificate-img">
-      <img src="./static/images/Software_Engineering_Job_Simulation.jpg" class="certificate-img">
+<section id="certifications" class="animated-section">
+  <h2 class="animated-heading">📜 Certifications</h2>
+  <div class="certificate-gallery">
+    <div class="certificate-item">
+      <img src="./static/images/certificates/PSL_Certificate.jpg" 
+           alt="Problem Solving Certificate" 
+           class="certificate-img"
+           loading="lazy">
     </div>
-  </section>
+    <div class="certificate-item">
+      <img src="./static/images/certificates/Excel_Certificate.jpg" 
+           alt="Excel Certification" 
+           class="certificate-img"
+           loading="lazy">
+    </div>
+    <div class="certificate-item">
+      <img src="./static/images/certificates/Software_Engineering_Job_Simulation.jpg" 
+           alt="Job Simulation Certificate" 
+           class="certificate-img"
+           loading="lazy">
+    </div>
+  </div>
+</section>
   
   <!-- Contact Section -->
   <section id="contact" class="section bg-light">
@@ -150,13 +185,13 @@
         <div class="col-lg-6 mx-auto">
           <form id="contactForm" class="contact-form">
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Divya" required>
+              <input type="text" class="form-control" id="name" placeholder="Your Name" required>
             </div>
             <div class="mb-3">
-              <input type="email" class="form-control" placeholder="divyapunna2507@gmail.com" required>
+              <input type="email" class="form-control" id="email" placeholder="Your Email" required>
             </div>
             <div class="mb-3">
-              <textarea class="form-control" rows="5" placeholder="hello" required></textarea>
+              <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary w-100">Send Message</button>
           </form>
