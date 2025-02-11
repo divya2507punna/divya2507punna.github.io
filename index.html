@@ -39,13 +39,13 @@
             <li class="nav-item"><a class="nav-link" href="#transition">Journey</a></li>
             <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
             <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-            <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-            <li class="nav-item"><a class="nav-link" href="#hire-me">Why Me?</a></li>
+            <li class="nav-item"><a class="nav-link" href="certifications">certifications</a></li>
+            <li class="nav-item"><a class="nav-link" href="why me?">Why Me?</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           </ul>
           <div class="social-links ms-3">
+            <img src="./static/images/profile.jpg" alt="Punna Divya" class="profile-img">
             <a href="https://www.linkedin.com/in/punnadivya1234/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/divya2507punna" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://drive.google.com/file/d/1OIwKmjR5oehz4j3XgEug5-9EtQM1bzgs/view?usp=drive_link" target="_blank" class="btn btn-primary resume-btn">Download CV</a>
           </div>
         </div>
@@ -54,12 +54,77 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero text-center">
-    <div class="container">
+  <section class="hero">
+    <div class="container text-center">
       <h1 class="hero-title">Punna Divya</h1>
       <p class="hero-subtitle">Data Analyst | Python Developer</p>
       <img src="./static/images/profile.jpg" alt="Punna Divya" class="profile-img">
     </div>
+  </section>
+
+  <!-- Transitioning to IT Section -->
+  <section id="transition">
+    <h2>My Journey: Transitioning to IT</h2>
+    <p>I started my career in a **non-IT role** but had a deep interest in technology. Through self-learning and projects, I gained expertise in **Python, SQL, and Data Analysis**. Now, I work on **data-driven solutions and automation**.</p>
+    <div class="timeline">
+      <div class="timeline-item">Started at Wipro (Non-IT Role)</div>
+      <div class="timeline-item">Self-learned Python & SQL</div>
+      <div class="timeline-item">Built Data Analysis projects</div>
+      <div class="timeline-item">Worked at Amazon as GO AI Associate</div>
+      <div class="timeline-item">Currently aspiring for a Data Analyst role</div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <h2>Professional Experience</h2>
+    <div class="experience-item">
+      <h3>GO AI Associate – Amazon</h3>
+      <p><em>Hyderabad | October 2023 – March 2024</em></p>
+      <ul>
+        <li>Developed automation scripts that reduced manual effort by 15%.</li>
+        <li>Collaborated with engineering teams to improve AI/ML training datasets.</li>
+        <li>Performed data validation and quality assurance checks.</li>
+      </ul>
+    </div>
+    <div class="experience-item">
+      <h3>Associate – Wipro</h3>
+      <p><em>Hyderabad | March 2022 – October 2023</em></p>
+      <ul>
+        <li>Optimized workflows using **Excel scripting**, improving efficiency by 10%.</li>
+        <li>Self-learned Python and SQL to automate reporting tasks.</li>
+        <li>Mentored junior team members on data processing techniques.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Customer Churn Analysis</h3>
+      <p>Analyzed **10,000+ records** to find churn trends and retention strategies.</p>
+      <p>Used **Pandas, NumPy**, and **Matplotlib** to generate insights.</p>
+      <a href="https://github.com/divya2507punna/customer-churn-analysis" target="_blank">View Project</a>
+    </div>
+    <div class="project">
+      <h3>E-commerce Data Analysis</h3>
+      <p>Developed an **inventory tracking system** using **MySQL & Python**.</p>
+      <p>Optimized **database queries**, reducing query time by **30%**.</p>
+      <a href="https://github.com/divya2507punna/ecommerce-data-analysis" target="_blank">View Project</a>
+    </div>
+  </section>
+
+    <!-- Why Hire Me Section -->
+  <section id="hire-me" class="section">
+    <h2>💡 Why Hire Me?</h2>
+    <ul>
+      <li>✅ Strong Analytical Skills – Proven ability to extract insights from complex datasets.</li>
+      <li>🚀 Fast Learner & Problem Solver – Self-taught Python, SQL, and automation techniques.</li>
+      <li>🔧 Hands-on Experience – Built end-to-end projects demonstrating real-world data handling skills.</li>
+      <li>🤝 Collaboration & Communication – Worked in cross-functional teams at Amazon & Wipro.</li>
+      <li>🎯 Driven & Goal-Oriented – Transitioned from non-IT to IT through focused learning.</li>
+    </ul>
   </section>
 
   <!-- Certifications Section -->
@@ -84,11 +149,49 @@
 
     </div>
   </section>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="section bg-light">
+    <div class="container">
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <form id="contactForm" class="contact-form">
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-dark text-light py-4">
-    <div class="container text-center">
-      <p>&copy; 2025 Punna Divya. All rights reserved.</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Punna Divya</h4>
+          <p>Data Analyst & Python Developer</p>
+        </div>
+        <div class="col-md-6 text-end">
+          <div class="social-links">
+            <a href="https://linkedin.com/in/punnadivya1234" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="https://github.com/divya2507punna" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+            <a href="mailto:divyapunna2507@gmail.com"><i class="fas fa-envelope fa-2x"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <p>&copy; 2023 Punna Divya. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
