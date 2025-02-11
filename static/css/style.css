@@ -5,6 +5,7 @@
   --hover: #e05e00;
   --light-bg: #f4f4f4;
   --dark-text: #222;
+  --gradient-bg: linear-gradient(to right, #ffd3b6, #ffaaa5, #a8e6cf);
 }
 
 /* Smooth Scrolling */
@@ -14,8 +15,8 @@ html {
 
 /* Global Styles */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: var(--light-bg);
+  font-family: 'Poppins', sans-serif;
+  background: var(--gradient-bg);
   color: var(--dark-text);
   margin: 0;
   padding: 0;
@@ -23,128 +24,120 @@ body {
 
 /* Navigation Bar */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background: var(--secondary);
-  padding: 15px 20px;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-brand {
+  font-weight: 600;
   color: white;
 }
 
-.navbar ul {
-  list-style: none;
-  display: flex;
+.navbar-nav .nav-item {
+  margin-left: 15px;
 }
 
-.navbar ul li {
-  margin-left: 20px;
-}
-
-.navbar ul li a {
+.navbar-nav .nav-link {
   color: white;
-  text-decoration: none;
-  padding: 8px 12px;
+  font-size: 1rem;
   transition: 0.3s ease-in-out;
 }
 
-.navbar ul li a:hover {
-  background: var(--primary);
-  border-radius: 5px;
+.navbar-nav .nav-link:hover {
+  color: var(--primary);
+  transform: scale(1.1);
 }
 
-.social-links a {
-  margin-left: 15px;
-  font-size: 1.2em;
-  color: white;
+/* Shrink Navbar on Scroll */
+.navbar.shrink {
+  padding: 5px 20px;
+  background: rgba(51, 51, 51, 0.9);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.profile-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
 
-.social-links a:hover {
-  color: var(--primary);
+.profile-img:hover {
+  transform: scale(1.1);
 }
 
-/* Scroll Progress */
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #ddd;
-  z-index: 999;
-}
-
-.scroll-progress-bar {
-  height: 100%;
-  background: var(--primary);
-  width: 0;
-  transition: width 0.3s;
-}
-
-/* About Section */
-#about {
-  padding: 50px;
+/* Sections */
+section {
+  padding: 50px 20px;
   text-align: center;
-  background: white;
 }
 
-.resume-btn {
+.animated-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary);
+  position: relative;
+}
+
+.animated-heading::after {
+  content: "";
+  width: 50px;
+  height: 4px;
+  background: var(--primary);
+  display: block;
+  margin: 10px auto;
+  transition: 0.5s;
+}
+
+section:hover .animated-heading::after {
+  width: 100px;
+}
+
+/* Transitioning to IT */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.timeline-item {
   background: var(--primary);
   color: white;
   padding: 10px 15px;
-  text-decoration: none;
-  border-radius: 5px;
-  display: inline-block;
-  margin-top: 10px;
+  border-radius: 10px;
+  width: 60%;
+  text-align: center;
   transition: 0.3s;
 }
 
-.resume-btn:hover {
+.timeline-item:hover {
   background: var(--hover);
   transform: scale(1.05);
 }
 
-/* Profile Image */
-.profile-img {
-  width: 150px;  /* Adjust the width as needed */
-  height: 150px; /* Keeps the image square */
-  border-radius: 50%; /* Makes it circular */
-  object-fit: cover; /* Ensures it does not stretch */
-  border: 4px solid var(--primary); /* Adds a border */
-  display: block;
-  margin: 20px auto; /* Centers the image */
-  transition: transform 0.3s ease-in-out;
-}
-
-.profile-img:hover {
-  transform: scale(1.1); /* Slight zoom effect on hover */
-}
-
-/* Skills Section */
-.skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  padding: 20px;
-}
-
-.skill {
-  background: var(--primary);
-  color: white;
-  padding: 12px 20px;
-  border-radius: 20px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.skill:hover {
-  background: var(--hover);
-  transform: scale(1.1);
-}
-
-/* Projects Section */
+/* Projects */
 .project {
   background: white;
   padding: 20px;
@@ -160,41 +153,17 @@ body {
   border-left: 5px solid var(--primary);
 }
 
-.project-link {
+.project a {
   text-decoration: none;
   color: var(--primary);
   font-weight: bold;
 }
 
-.project-link:hover {
+.project a:hover {
   text-decoration: underline;
 }
 
-/* Journey Timeline */
-.journey-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
-  margin: 30px 0;
-}
-
-.journey-step {
-  background: var(--primary);
-  color: white;
-  padding: 10px 15px;
-  border-radius: 10px;
-  width: 60%;
-  text-align: center;
-  transition: 0.3s;
-}
-
-.journey-step:hover {
-  background: var(--hover);
-  transform: scale(1.05);
-}
-
-/* Certifications Section */
+/* Certifications */
 .certificate-gallery {
   display: flex;
   flex-wrap: wrap;
@@ -203,25 +172,40 @@ body {
   text-align: center;
 }
 
-.certificate img {
-  width: 250px;
+.certificate-img {
+  width: 280px;
   height: auto;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
-.certificate img:hover {
+.certificate-img:hover {
   transform: scale(1.1);
 }
 
-.certificate p {
-  font-size: 1rem;
-  margin-top: 10px;
-  color: #333;
-  font-weight: bold;
+/* Why Hire Me */
+#hire-me {
+  background: rgba(255, 105, 0, 0.1);
+  padding: 40px;
+  border-radius: 10px;
 }
 
+#hire-me ul {
+  list-style: none;
+  padding: 0;
+}
+
+#hire-me li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+#hire-me li:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
 
 /* Contact Form */
 #contactForm {
@@ -261,4 +245,10 @@ footer {
   color: white;
   padding: 15px;
   margin-top: 20px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }

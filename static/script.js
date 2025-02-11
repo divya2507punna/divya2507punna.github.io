@@ -6,14 +6,23 @@ window.addEventListener("scroll", () => {
   document.querySelector(".scroll-progress-bar").style.width = scrolled + "%";
 });
 
+// Shrink Navbar on Scroll
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navbar");
+  if (window.scrollY > 50) {
+    navbar.classList.add("shrink");
+  } else {
+    navbar.classList.remove("shrink");
+  }
+});
+
 // Back to Top Button
 const topBtn = document.getElementById("scrollTop");
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    topBtn.style.display = "block";
-  } else {
-    topBtn.style.display = "none";
-  }
+  topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+topBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 topBtn.addEventListener("click", () => {
