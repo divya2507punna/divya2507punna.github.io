@@ -6,28 +6,38 @@ window.addEventListener("scroll", () => {
   document.querySelector(".scroll-progress-bar").style.width = scrolled + "%";
 });
 
-// Shrink Navbar on Scroll
+// Shrink and Hide Navbar on Scroll
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navbar");
   if (window.scrollY > 50) {
-    navbar.classList.add("shrink");
+    navbar.classList.add("shrink");  // Shrink navbar
   } else {
-    navbar.classList.remove("shrink");
+    navbar.classList.remove("shrink"); // Reset navbar
   }
 });
 
+// Hide Navbar After Scrolling Down
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navbar");
+  if (window.scrollY > 100) {
+    navbar.classList.add("shrink"); // Hide navbar
+  } else {
+    navbar.classList.remove("shrink"); // Show navbar at the top
+  }
+});
+
+
 // Back to Top Button
 const topBtn = document.getElementById("scrollTop");
+
 window.addEventListener("scroll", () => {
   topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-});
-topBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 topBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 
 // Intersection Observer for Section Animations
 const observer = new IntersectionObserver(
@@ -56,9 +66,11 @@ document.querySelectorAll(".navbar a").forEach((anchor) => {
   });
 });
 
+
 // Navbar Active Link Highlighting
 window.addEventListener("scroll", () => {
-  let scrollPosition = window.scrollY + 100;
+  let scrollPosition = window.scrollY + window.innerHeight * 0.3; // Adjust threshold
+
   document.querySelectorAll(".navbar a").forEach((link) => {
     let section = document.querySelector(link.getAttribute("href"));
     if (section && section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
@@ -71,41 +83,44 @@ window.addEventListener("scroll", () => {
 // Form Validation with Success Message
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
-  
+  document.querySelectorAll(".error-message").forEach((error) => error.remove());
+
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const message = document.getElementById("message");
+
   let isValid = true;
 
-  if (name.length < 3) {
-    showError("name", "Name must be at least 3 characters");
+  if (name.value.trim().length < 3) {
+    showError(name, "Name must be at least 3 characters");
     isValid = false;
   }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    showError("email", "Please enter a valid email address");
+  if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.value.trim())) {
+    showError(email, "Please enter a valid email address");
     isValid = false;
   }
 
-  if (message.length < 10) {
-    showError("message", "Message must be at least 10 characters");
+  if (message.value.trim().length < 10) {
+    showError(message, "Message must be at least 10 characters");
     isValid = false;
   }
 
   if (isValid) {
     alert("Thank you for your message! I will get back to you soon.");
     this.reset();
-    document.querySelectorAll(".error-message").forEach((error) => error.remove());
   }
 });
 
 // Show Error Messages
-function showError(fieldId, message) {
-  const field = document.getElementById(fieldId);
-  field.style.borderColor = "red";
-  field.nextElementSibling?.remove();
-  field.insertAdjacentHTML(
-    "afterend",
-    `<div class="error-message" style="color:red;font-size:0.8em">${message}</div>`
-  );
+function showError(inputField, message) {
+  inputField.style.borderColor = "red";
+  inputField.nextElementSibling?.remove();
+  inputField.insertAdjacentHTML("afterend", `<div class="error-message" style="color:red;font-size:0.8em">${message}</div>`);
+
+  // Remove error when the user starts typing
+  inputField.addEventListener("input", () => {
+    inputField.style.borderColor = "";
+    inputField.nextElementSibling?.remove();
+  });
 }
