@@ -1,7 +1,7 @@
 /* Root Variables */
 :root {
   --primary: #ff6900;
-  --secondary: #333;
+  --secondary: white;
   --hover: #e05e00;
   --light-bg: #f4f4f4;
   --dark-text: #222;
@@ -116,7 +116,7 @@ body {
 /* Shrinks the navbar instead of hiding it */
 .navbar.shrink {
   padding: 8px 20px;
-  background: rgba(51, 51, 51, 0.9);
+  background: whitesmoke;
   transition: 0.3s;
 }
 
@@ -297,7 +297,7 @@ section:hover .animated-heading::after {
 /* Footer */
 footer {
   text-align: center;
-  background: var(--secondary);
+  background: whitesmoke;
   color: white;
   padding: 15px;
   margin-top: 20px;
