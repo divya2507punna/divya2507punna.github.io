@@ -12,7 +12,18 @@ window.addEventListener("scroll", () => {
   // Back to Top Button
   document.getElementById("scrollTop").style.display = window.scrollY > 300 ? "block" : "none";
 });
+// Add hover effects for experience and project sections
+document.querySelectorAll('.experience-item, .project').forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    item.style.transform = 'translateY(-5px)';
+    item.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+  });
 
+  item.addEventListener('mouseleave', () => {
+    item.style.transform = 'translateY(0)';
+    item.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+  });
+});
 // Optimized Intersection Observer
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
